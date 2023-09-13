@@ -1,26 +1,23 @@
 from student import Student
 from professor import Professor
-from random import choice as c
+from course import Course
 
-class Course:
-    def __init__(self, name, professor):
+class University:
+    def __init__(self, name):
         self.name=name
-        self.professor=professor
-        self.students=[]
-        self.__make_id()
+        self.courses=dict()
 
-    def __make_id(self):
-        self.id=str(self.name[0:3].upper()+str(c(range(1111,9999))))
+    def add_course(self, course):
+        if course.name in self.courses:
+            self.courses[course.name].append(course)
+        else:
+            self.courses[course.name] = [course]
 
-    def add_student(self, student):
-        self.students.append(student)
+    def number_of_courses(self):
+        return print(f'Il numero di corsi per l\'Università {self.name} è pari a {len(self.courses)}')
 
-    def show_course(self):
-        for key, value in self.course.items():
-            print(f'Nome del corso: {key} \nTenuto dal docente {value[0].name} {value[0].surname}\nAlunni iscritti:')
-            for student in value[1]:
-                print(f'\t{student.name} {student.surname} id:{student.univoqueCode}\n')
-
+# Esempio aggiunta università
+u1=University('Arizona University')
 
 # Esempio aggiunta studenti
 s1=Student('Giovanni', 'Pezzocchia', 20, 1)
