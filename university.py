@@ -9,9 +9,9 @@ class University:
 
     def add_course(self, course):
         if course.name in self.courses:
-            self.courses[course.name].append(course)
+            print('Errore, esiste già un corso con l\'identificativo '+course.id)
         else:
-            self.courses[course.name] = [course]
+            self.courses[course.id] = [course]
 
     def number_of_courses(self):
         return print(f'Il numero di corsi per l\'Università {self.name} è pari a {len(self.courses)}')
