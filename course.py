@@ -1,5 +1,6 @@
 from student import Student
 from professor import Professor
+from random import choice as c
 
 class Course:
     def __init__(self, name, professor):
@@ -7,6 +8,10 @@ class Course:
         self.professor=professor
         self.students=[]
         self.course=dict()
+        self.__make_id()
+
+    def __make_id(self):
+        self.id=str(self.name[0:3].upper()+str(c(range(1111,9999))))
 
     def add_student(self, student):
         self.students.append(student)
